@@ -44,3 +44,4 @@ gem 'omniauth-facebook'
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
 gem 'rspec-collection_matchers', group: :test
+gem 'warden', group: :test
