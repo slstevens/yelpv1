@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
