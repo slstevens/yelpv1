@@ -11,6 +11,7 @@ context "user not signed in and on the homepage" do
     visit('/')
     expect(page).not_to have_link('Sign out')
   end
+
 end
 
 context "user signed in on the homepage" do
@@ -34,4 +35,14 @@ context "user signed in on the homepage" do
     expect(page).not_to have_link('Sign in')
     expect(page).not_to have_link('Sign up')
   end
+end
+
+context "user not signed in and trying to add a restaurant" do
+
+  it "should see login form when trying to click add a restaurant " do
+    visit('/')
+    click_link('Add a restaurant')
+    expect(page).to have_content('Log in')
+  end
+
 end

@@ -39,6 +39,12 @@ describe 'restaurants' do
 
 	  before do 
 	    Restaurant.create(name:'KFC') 
+	    visit('/')
+	    click_link('Sign up')
+	    fill_in('Email', with: 'test@example.com')
+	    fill_in('Password', with: 'testtest')
+	    fill_in('Password confirmation', with: 'testtest')
+	    click_button('Sign up')
 	  end
 
 	  it 'lets a user edit a restaurant' do
@@ -55,6 +61,17 @@ describe 'restaurants' do
 end
 
 describe 'creating restaurants' do 
+
+	before do 
+	    visit('/')
+	    click_link('Sign up')
+	    fill_in('Email', with: 'test@example.com')
+	    fill_in('Password', with: 'testtest')
+	    fill_in('Password confirmation', with: 'testtest')
+	    click_button('Sign up')
+	  end
+
+
 	it 'prompts user to fill out a form, then displays the new restaurant' do
 	  visit '/restaurants'
 	  click_link 'Add a restaurant'
@@ -79,8 +96,14 @@ end
 
 describe 'deleting restaurants' do
 
-	  before do
-	    Restaurant.create(:name => "KFC")
+	  before do 
+	    Restaurant.create(name:'KFC') 
+	    visit('/')
+	    click_link('Sign up')
+	    fill_in('Email', with: 'test@example.com')
+	    fill_in('Password', with: 'testtest')
+	    fill_in('Password confirmation', with: 'testtest')
+	    click_button('Sign up')
 	  end
 
 	  it "removes a restaurant when a user clicks a delete link" do
