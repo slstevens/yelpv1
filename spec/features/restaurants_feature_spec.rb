@@ -88,12 +88,17 @@ describe 'creating restaurants' do
 end
 
 
-describe 'deleting restaurants' do
+describe 'deleting restaurants when logged in' do
 
 	before do
-		Restaurant.create(name:'KFC')
+		# Restaurant.create(name:'KFC')
 		test_user = User.create(email: "sean@makers.com", password: "12345678", password_confirmation: "12345678")
 		login_as test_user
+		visit '/restaurants'
+		click_link 'Add a restaurant'
+		fill_in 'Name', with: 'KFC'
+		click_button 'Create Restaurant'
+		expect(page).to have_content 'KFC'
 	end
 
 	it "removes a restaurant when a user clicks a delete link" do
@@ -104,3 +109,4 @@ describe 'deleting restaurants' do
 	end
 
 end
+

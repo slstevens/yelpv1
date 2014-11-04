@@ -19,12 +19,6 @@ context "user signed in on the homepage" do
   before do
     test_user = User.create(email: "sean@makers.com", password: "12345678", password_confirmation: "12345678")
     login_as test_user
-    # visit('/')
-    # click_link('Sign up')
-    # fill_in('Email', with: 'test@example.com')
-    # fill_in('Password', with: 'testtest')
-    # fill_in('Password confirmation', with: 'testtest')
-    # click_button('Sign up')
   end
 
   it "should see 'sign out' link" do
