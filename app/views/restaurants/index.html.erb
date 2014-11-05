@@ -13,6 +13,7 @@
 		      </li>
 			  <%if review.user == current_user%>
 		      <p><%= link_to "Delete review", restaurant_review_path(restaurant, review), method: :delete %></p>
+		      <p>Average rating: <%= restaurant.average_rating.to_i %></p>
 		      <%end%>
 		    <% end %>
 		  </ul>
