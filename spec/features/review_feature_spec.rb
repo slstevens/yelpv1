@@ -32,7 +32,8 @@ describe 'reviewing' do
     test_user2 = User.create(email: "sean2@makers.com", password: "12345678", password_confirmation: "12345678")
     login_as test_user2
     leave_review('Great', "5")
-    expect(page).to have_content("Average rating: 4")
+    expect(page).to have_content("Star rating: ★★★★☆")    
   end
+
 end
 
