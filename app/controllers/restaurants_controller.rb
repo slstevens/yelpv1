@@ -15,8 +15,9 @@ class RestaurantsController < ApplicationController
 	  @restaurant.user = current_user
 	  if @restaurant.save
 	    redirect_to restaurants_path
-	  else
-	    render 'new'
+	  else @restaurant.delete
+	  	flash[:notice] = "Restaurant has already been created"
+	    redirect_to restaurants_path
 	  end
     end
 
@@ -51,10 +52,14 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-	    @restaurant = Restaurant.find(params[:id])
+	    # @restaurant = Restaurant.find(params[:id])
+	    @restaurant = current_user.restaurants.find(params[:id])
 	    @restaurant.destroy
-	    flash[:notice] = 'Restaurant deleted successfully'
-	    redirect_to '/restaurants'
+	   	flash[:notice] = 'Restaurant deleted successfully'
+	   	redirect_to '/restaurants'
+	    rescue ActiveRecord::RecordNotFound
+	    flash[:notice] = "You're not allowed to delete!"
+	    redirect_to root_path
     end
 
 end
