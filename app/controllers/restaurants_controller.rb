@@ -15,14 +15,14 @@ class RestaurantsController < ApplicationController
 	  @restaurant.user = current_user
 	  if @restaurant.save
 	    redirect_to restaurants_path
-	  else @restaurant.delete
-	  	flash[:notice] = "Restaurant has already been created"
+	  else
+	  	flash[:notice] = @restaurant.errors.messages.map{|k,v| "#{k}=#{v}"}.join("\n")
 	    redirect_to restaurants_path
 	  end
     end
 
     def restaurant_params
-    	params.require(:restaurant).permit(:name) 
+    	params.require(:restaurant).permit(:name, :image) 
     end
 
 	def show

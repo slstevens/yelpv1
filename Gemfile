@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'paperclip'
 
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
