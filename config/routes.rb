@@ -35,8 +35,10 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
   # resources :restaurants
-  resources :restaurants do
-    resources :reviews
+  resources :restaurants, shallow: true do
+    resources :reviews do
+      resources :endorsements 
+    end
   end
   # Example resource route with more complex sub-resources:
   #   resources :products do
