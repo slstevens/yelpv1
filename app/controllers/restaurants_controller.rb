@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
 	  if @restaurant.save
 	    redirect_to restaurants_path
 	  else
-	  	flash[:notice] = @restaurant.errors.messages.map{|k,v| "#{k}=#{v}"}.join("\n")
+	  	flash[:notice] = "Restaurant has already been created"
 	    redirect_to restaurants_path
 	  end
     end

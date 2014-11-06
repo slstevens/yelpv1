@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'paperclip'
+gem 'aws-sdk'
 
 gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
